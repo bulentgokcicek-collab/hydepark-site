@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://sitemaps.org">
+  <url>
+    <loc>https://hydeparkspeakers.com</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://hydeparkspeakers.comhistory-of-speakers-corner.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hydeparkspeakers.comfamous-orators-hyde-park.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hydeparkspeakers.comthe-power-of-the-soapbox.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hydeparkspeakers.comwomen-suffrage-at-speakers-corner.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hydeparkspeakers.comfree-speech-in-the-digital-age.html</loc>
+    <priority>0.8</priority>
+  </url>
+</urlset>
