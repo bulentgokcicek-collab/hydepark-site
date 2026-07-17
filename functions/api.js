@@ -32,7 +32,7 @@ export async function onRequest(context) {
       if (!username || !comment) return new Response(JSON.stringify({ error: "Missing fields" }), { headers, status: 400 });
 
       // AI Denetimi
-      const aiResponse = await env.AI.run("@cf/meta/llama-3-8b-instruct", {
+      const aiResponse = await env.AI.run("@cf/meta/llama-3.1-8b-instruct", {
         messages: [
           { role: "system", content: "Your only job is to analyze the comment and output EXACTLY 'SAFE' or 'TOXIC'. No other words." },
           { role: "user", content: comment }
