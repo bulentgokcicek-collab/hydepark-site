@@ -46,8 +46,8 @@ export async function onRequest(context) {
       }
 
       // Temizse doğrudan D1 SQL veri tabanına yaz
-      await env.DB.prepare("INSERT INTO comments (username, comment) VALUES (?, ?)")
-        .bind(username, comment).run();
+await env.DB.prepare("INSERT INTO comments (username, comment, stars) VALUES (?, ?, 3)")
+  .bind(username, comment).run();
 
       return new Response(JSON.stringify({ success: true }), { headers, status: 201 });
     }
