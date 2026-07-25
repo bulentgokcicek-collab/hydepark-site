@@ -211,18 +211,29 @@
                 const avgRating = c.vote_count > 0 ? (c.total_points / c.vote_count).toFixed(1) : "0.0";
                 const hasVoted = votedComments.includes(c.id);
 
+                // 5 Yıldız görselleştirmesi oluştur
+                let starsHTML = '';
+                const roundedRating = Math.round(parseFloat(avgRating));
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= roundedRating) {
+                        starsHTML += `<span style="color: #f1c40f; font-size: 1rem; margin-right: 1px;">★</span>`; // Parlak altın yıldız
+                    } else {
+                        starsHTML += `<span style="color: #e0e0e0; font-size: 1rem; margin-right: 1px;">★</span>`; // Sönük gri yıldız
+                    }
+                }
+
                 let rateControlHTML = '';
                 if (hasVoted) {
                     rateControlHTML = `<span style="color: #27ae60; font-weight: bold; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 3px;">✓ Rated</span>`;
                 } else {
                     rateControlHTML = `
                         <select onchange="rateComment(${c.id}, this.value)" style="font-size:0.75rem; padding:2px; border-radius:3px; border:1px solid #ccc;">
-                            <option value="">Rate this...</option>
-                            <option value="5">5 - Excellent</option>
-                            <option value="4">4 - Good</option>
-                            <option value="3">3 - Average</option>
-                            <option value="2">2 - Poor</option>
-                            <option value="1">1 - Terrible</option>
+                            <option value="">Rate...</option>
+                            <option value="5">5 ★</option>
+                            <option value="4">4 ★</option>
+                            <option value="3">3 ★</option>
+                            <option value="2">2 ★</option>
+                            <option value="1">1 ★</option>
                         </select>
                     `;
                 }
@@ -233,7 +244,10 @@
                     
                     <!-- İnteraktif Puanlama Alanı -->
                     <div class="rating-box" style="display:flex; align-items:center; gap:10px; font-size:0.8rem; border-top:1px solid #eee; padding-top:5px; margin-top:5px; color:#7f8c8d;">
-                        <span>⭐ ${avgRating}/5 (${c.vote_count} votes)</span>
+                        <div style="display: flex; align-items: center;" title="${avgRating} / 5">
+                            ${starsHTML}
+                        </div>
+                        <span>(${c.vote_count} votes)</span>
                         ${rateControlHTML}
                     </div>
                 `;
