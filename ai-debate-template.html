@@ -164,7 +164,21 @@
         <p>&copy; 2026 Hyde Park Speakers. All Rights Reserved.</p>
     </footer>
 <script>
-    document.addEventListener("DOMContentLoaded", fetchComments);
+    document.addEventListener("DOMContentLoaded", () => {
+        // 1. Kayıtlı kullanıcı adını kontrol et ve sabitle
+        const savedUsername = localStorage.getItem("hydepark_username");
+        if (savedUsername) {
+            const usernameInput = document.getElementById("usernameInput");
+            usernameInput.value = savedUsername;
+            usernameInput.disabled = true;
+            usernameInput.style.backgroundColor = "#e9ecef";
+            usernameInput.style.cursor = "not-allowed";
+        }
+        
+        // 2. Yorumları getir
+        fetchComments();
+    });
+
     document.getElementById("sortOptions").addEventListener("change", fetchComments);
 
     const apiEndpoint = "/api";
@@ -175,7 +189,7 @@
         const historyDiv = document.getElementById("chatHistory");
         
         try {
-            const response = await fetch(`${apiEndpoint}?sort=${sortBy}`);
+            const response = await fetch(`${apiEndpoint}?topic=ai&sort=${sortBy}`);
             const comments = await response.json();
             
             historyDiv.innerHTML = "";
@@ -185,6 +199,9 @@
                 return;
             }
 
+            // LocalStorage'dan oylanan yorumları çek
+            const votedComments = JSON.parse(localStorage.getItem("hydepark_voted_comments") || "[]");
+
             comments.forEach(c => {
                 const bubble = document.createElement("div");
                 bubble.className = "bubble";
@@ -192,14 +209,13 @@
                 
                 // Ortalama puanı hesapla
                 const avgRating = c.vote_count > 0 ? (c.total_points / c.vote_count).toFixed(1) : "0.0";
-                
-                bubble.innerHTML = `
-                    <div class="username" style="font-weight:bold; color:#2c3e50; font-size:0.9rem;">@${escapeHTML(c.username)}</div>
-                    <div class="text" style="margin: 8px 0; color:#333;">${escapeHTML(c.comment)}</div>
-                    
-                    <!-- İnteraktif Puanlama Alanı -->
-                    <div class="rating-box" style="display:flex; align-items:center; gap:10px; font-size:0.8rem; border-top:1px solid #eee; padding-top:5px; margin-top:5px; color:#7f8c8d;">
-                        <span>⭐ ${avgRating}/5 (${c.vote_count} votes)</span>
+                const hasVoted = votedComments.includes(c.id);
+
+                let rateControlHTML = '';
+                if (hasVoted) {
+                    rateControlHTML = `<span style="color: #27ae60; font-weight: bold; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 3px;">✓ Rated</span>`;
+                } else {
+                    rateControlHTML = `
                         <select onchange="rateComment(${c.id}, this.value)" style="font-size:0.75rem; padding:2px; border-radius:3px; border:1px solid #ccc;">
                             <option value="">Rate this...</option>
                             <option value="5">5 - Excellent</option>
@@ -208,6 +224,17 @@
                             <option value="2">2 - Poor</option>
                             <option value="1">1 - Terrible</option>
                         </select>
+                    `;
+                }
+
+                bubble.innerHTML = `
+                    <div class="username" style="font-weight:bold; color:#2c3e50; font-size:0.9rem;">@${escapeHTML(c.username)}</div>
+                    <div class="text" style="margin: 8px 0; color:#333;">${escapeHTML(c.comment)}</div>
+                    
+                    <!-- İnteraktif Puanlama Alanı -->
+                    <div class="rating-box" style="display:flex; align-items:center; gap:10px; font-size:0.8rem; border-top:1px solid #eee; padding-top:5px; margin-top:5px; color:#7f8c8d;">
+                        <span>⭐ ${avgRating}/5 (${c.vote_count} votes)</span>
+                        ${rateControlHTML}
                     </div>
                 `;
                 historyDiv.appendChild(bubble);
@@ -222,7 +249,8 @@
 
     // 2. YORUM GÖNDERME
     async function submitComment() {
-        const username = document.getElementById("usernameInput").value.trim();
+        const usernameInput = document.getElementById("usernameInput");
+        const username = usernameInput.value.trim();
         const comment = document.getElementById("commentInput").value.trim();
 
         if (!username || !comment) {
@@ -234,11 +262,17 @@
             const response = await fetch(apiEndpoint, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ username, comment })
+                body: JSON.stringify({ username, comment, topic: "ai" })
             });
 
             const result = await response.json();
             if (response.ok) {
+                // Kullanıcı adını localStorage'a sabitle
+                localStorage.setItem("hydepark_username", username);
+                usernameInput.disabled = true;
+                usernameInput.style.backgroundColor = "#e9ecef";
+                usernameInput.style.cursor = "not-allowed";
+
                 document.getElementById("commentInput").value = "";
                 await fetchComments();
             } else {
@@ -260,10 +294,16 @@
                 body: JSON.stringify({ id: commentId, rating: parseInt(score) })
             });
 
+            const result = await response.json();
             if (response.ok) {
+                // LocalStorage'a oylanan yorumu kaydet
+                const votedComments = JSON.parse(localStorage.getItem("hydepark_voted_comments") || "[]");
+                votedComments.push(commentId);
+                localStorage.setItem("hydepark_voted_comments", JSON.stringify(votedComments));
+
                 await fetchComments(); // Skorları anlık tazele
             } else {
-                alert("Failed to register vote.");
+                alert(result.error || "Failed to register vote.");
             }
         } catch (error) {
             console.error(error);
