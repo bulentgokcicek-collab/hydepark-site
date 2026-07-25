@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Free Games | Hyde Park Speakers' Corner</title>
+    <meta name="description" content="Play interactive free games and discuss with other players. Place Them All, Just Swipe Away, Search Your Memory, and Lingo Match.">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #333; background: #f9f9f9; }
+        header { background: #1a252f; color: #fff; padding: 40px 20px; text-align: center; }
+        header h1 { margin: 0; font-size: 2.5rem; }
+        header p { margin: 10px 0 0 0; color: #aec6cf; }
+        nav { background: #2c3e50; text-align: center; padding: 12px 10px; display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 15px; }
+        nav a { color: #fff; text-decoration: none; font-weight: bold; white-space: nowrap; }
+        nav a:hover { color: #1abc9c; }
+        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+        
+        .intro-text { text-align: center; margin-bottom: 40px; }
+        .intro-text h2 { color: #2c3e50; font-size: 2rem; margin-bottom: 10px; }
+        .intro-text p { color: #7f8c8d; font-size: 1.1rem; max-width: 700px; margin: 0 auto; }
+
+        /* Grid Layout */
+        .arena-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        /* Premium Card Design */
+        .arena-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #eaeaea;
+        }
+        .arena-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .card-img-wrapper {
+            position: relative;
+            height: 180px;
+            overflow: hidden;
+        }
+        .arena-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .arena-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .status-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #e74c3c;
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(231, 76, 60, 0.3);
+        }
+        
+        .card-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .card-content h3 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+            font-size: 1.3rem;
+        }
+        .card-content p {
+            color: #555;
+            font-size: 0.95rem;
+            margin: 0 0 20px 0;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+        
+        .arena-btn {
+            background: #e74c3c;
+            color: #fff;
+            text-align: center;
+            padding: 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.2s ease;
+            display: block;
+        }
+        .arena-btn:hover {
+            background: #c0392b;
+        }
+        
+        footer { text-align: center; padding: 20px; background: #1a252f; color: #fff; margin-top: 50px; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Hyde Park Speakers' Corner</h1>
+        <p>The Digital Home of Free Speech, Historical Oratory & Open Discourse</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="free-speech-arenas.html">Free Speech Arenas</a>
+        <a href="free-games.html">Free Games</a>
+        <a href="about.html">About Us</a>
+        <a href="privacy.html">Privacy Policy</a>
+    </nav>
+
+    <main class="container">
+        <section class="intro-text">
+            <h2>Free Games & Chat Arenas</h2>
+            <p>Oyun oynarken konuşma özgürlüğünün tadını çıkarmaya devam edin. Play our free interactive mini-games, compete for scores, and join the live player chat!</p>
+        </section>
+
+        <div class="arena-grid">
+            <!-- Card 1: Place Them All -->
+            <article class="arena-card">
+                <div class="card-img-wrapper">
+                    <span class="status-badge">Play Now</span>
+                    <img src="images/place-them-all.jpg" alt="Place Them All">
+                </div>
+                <div class="card-content">
+                    <h3>Place Them All</h3>
+                    <p>A strategic block puzzle game. Place block groups onto the board, clear lines, and beat high scores while discussing puzzle tactics and free speech.</p>
+                    <a href="https://place-them-all.hydeparkspeakers.com/" class="arena-btn">Play Game</a>
+                </div>
+            </article>
+
+            <!-- Card 2: Just Swipe Away -->
+            <article class="arena-card">
+                <div class="card-img-wrapper">
+                    <span class="status-badge">Play Now</span>
+                    <img src="images/just-swipe-away.jpg" alt="Just Swipe Away">
+                </div>
+                <div class="card-content">
+                    <h3>Just Swipe Away</h3>
+                    <p>Test your reflexes in this fast-paced swipe arcade game. Avoid obstacles, collect points, and chat with fellow swipers.</p>
+                    <a href="https://just-swipe-away.hydeparkspeakers.com/" class="arena-btn">Play Game</a>
+                </div>
+            </article>
+
+            <!-- Card 3: Search Your Memory -->
+            <article class="arena-card">
+                <div class="card-img-wrapper">
+                    <span class="status-badge">Play Now</span>
+                    <img src="images/search-your-memory.jpg" alt="Search Your Memory">
+                </div>
+                <div class="card-content">
+                    <h3>Search Your Memory</h3>
+                    <p>Train your brain with this classic memory cards matching game. Match symbols in minimal moves and write your thoughts.</p>
+                    <a href="https://search-your-memory.hydeparkspeakers.com/" class="arena-btn">Play Game</a>
+                </div>
+            </article>
+
+            <!-- Card 4: Lingo Match -->
+            <article class="arena-card">
+                <div class="card-img-wrapper">
+                    <span class="status-badge">Play Now</span>
+                    <img src="images/lingo-match.jpg" alt="Lingo Match">
+                </div>
+                <div class="card-content">
+                    <h3>Lingo Match</h3>
+                    <p>Match letters and vocabulary words to improve your language skills. Challenge yourself and discuss language sovereignty with others.</p>
+                    <a href="https://lingo-match.hydeparkspeakers.com/" class="arena-btn">Play Game</a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Hyde Park Speakers. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

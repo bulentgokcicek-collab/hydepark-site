@@ -38,5 +38,25 @@
     "articleImage": "images/gaming.jpg",
     "date": "July 25, 2026",
     "articleContent": "<p>Interactive gaming has evolved from a niche hobby into a dominant cultural medium.</p><p>Virtual gaming worlds serve as crucial social squares where millions gather to socialize, trade, and express political beliefs. What are the rules of speech in virtual worlds managed by private game publishers?</p><p>Explore whether gaming platforms are the new frontiers of human culture and how corporate ownership affects virtual expression.</p>"
+  },
+  "place-them-all": {
+    "type": "game",
+    "title": "Place Them All",
+    "gameUrl": "games/place-them-all/index.html"
+  },
+  "just-swipe-away": {
+    "type": "game",
+    "title": "Just Swipe Away",
+    "gameUrl": "games/just-swipe-away/index.html"
+  },
+  "search-your-memory": {
+    "type": "game",
+    "title": "Search Your Memory",
+    "gameUrl": "games/search-your-memory/index.html"
+  },
+  "lingo-match": {
+    "type": "game",
+    "title": "Lingo Match",
+    "gameUrl": "games/lingo-match/index.html"
   }
 }

@@ -3,7 +3,10 @@ export async function onRequest(context) {
   const hostname = url.hostname;
 
   // İzin verilen alt alan adları (subdomain'ler) listesi
-  const allowedSubdomains = ["ai", "career", "tech", "finance", "gaming"];
+  const allowedSubdomains = [
+    "ai", "career", "tech", "finance", "gaming",
+    "place-them-all", "just-swipe-away", "search-your-memory", "lingo-match"
+  ];
 
   // Alt alan adını yakalıyoruz
   const parts = hostname.split(".");
