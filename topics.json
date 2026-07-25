@@ -1,0 +1,42 @@
+{
+  "ai": {
+    "title": "AI & Free Speech Arena",
+    "subtitle": "Debate the automated frontier of human language, moderation, and algorithms.",
+    "articleTitle": "AI and the Automated Frontier of Free Speech",
+    "articleImage": "images/ai-speech.jpg",
+    "date": "July 25, 2026",
+    "articleContent": "<p>As artificial intelligence systems begin to moderate, generate, and restrict human language on a global scale, the fundamental nature of free speech is changing.</p><p>Algorithms now decide what constitutes acceptable discourse on major platforms, raising questions about corporate control over public speech. Who programs these systems, and do automated filters suppress legitimate human dialogue?</p><p>Explore the balance between safety and liberty in the age of automated speech moderation.</p>"
+  },
+  "career": {
+    "title": "Career & Leadership Arena",
+    "subtitle": "Discuss modern career building, remote leadership, and professional growth.",
+    "articleTitle": "Redefining Leadership and Career Sovereignty in the Digital Era",
+    "articleImage": "images/career.jpg",
+    "date": "July 25, 2026",
+    "articleContent": "<p>Modern career development is no longer a linear ladder but a dynamic lattice. With the rise of remote work, artificial intelligence, and decentralized organizational structures, professionals must adapt.</p><p>Leadership now requires emotional intelligence, technical literacy, and cross-cultural adaptability. Traditional hiring models are giving way to talent portfolios and continuous skill acquisition.</p><p>How can individuals navigate this changing landscape to build meaningful, sovereign careers?</p>"
+  },
+  "tech": {
+    "title": "Technology & Software Arena",
+    "subtitle": "Voice your thoughts on open-source, digital privacy, and technological centralization.",
+    "articleTitle": "Software Sovereignty: The Battle Between Open and Proprietary Systems",
+    "articleImage": "images/tech.jpg",
+    "date": "July 25, 2026",
+    "articleContent": "<p>The technology landscape is split between open-source collaborative models and tightly controlled proprietary ecosystems.</p><p>As software drives everything from municipal grids to personal health devices, who owns the code owns the future. Will software sovereignty remain with the global developer community, or will it centralize under a few tech conglomerates?</p><p>Discuss the ethical implications of open-source development, proprietary software, and digital user rights.</p>"
+  },
+  "finance": {
+    "title": "Finance & Economy Arena",
+    "subtitle": "Explore inflation, decentralization, and the future of money and investment.",
+    "articleTitle": "Inflation, Decentralization, and the Future of Sovereign Money",
+    "articleImage": "images/finance.jpg",
+    "date": "July 25, 2026",
+    "articleContent": "<p>Traditional monetary systems are facing unprecedented pressures from global inflation, massive public debt, and the rise of decentralized digital currencies.</p><p>The concept of money itself is being renegotiated. Can centralized banking reserves maintain global economic stability, or will decentralized ledgers redefine how humanity stores and exchanges value?</p><p>Debate the future of fiat currencies, precious assets, stock market investing, and decentralized finance.</p>"
+  },
+  "gaming": {
+    "title": "Gaming & Culture Arena",
+    "subtitle": "Discuss the metaverse, virtual social spaces, and rules of expression in gaming.",
+    "articleTitle": "The Metaverse and the Virtual Expansion of Social Spaces",
+    "articleImage": "images/gaming.jpg",
+    "date": "July 25, 2026",
+    "articleContent": "<p>Interactive gaming has evolved from a niche hobby into a dominant cultural medium.</p><p>Virtual gaming worlds serve as crucial social squares where millions gather to socialize, trade, and express political beliefs. What are the rules of speech in virtual worlds managed by private game publishers?</p><p>Explore whether gaming platforms are the new frontiers of human culture and how corporate ownership affects virtual expression.</p>"
+  }
+}

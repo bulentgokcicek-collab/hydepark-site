@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Free Speech Arenas | Hyde Park Speakers' Corner</title>
-    <meta name="description" content="Join our live interactive free speech arenas. Voice your thoughts on AI, free speech, digital censorship, and more.">
+    <meta name="description" content="Join our live interactive free speech arenas. Voice your thoughts on AI, career, technology, finance, and gaming.">
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #333; background: #f9f9f9; }
         header { background: #1a252f; color: #fff; padding: 40px 20px; text-align: center; }
@@ -125,7 +125,7 @@
         <p>The Digital Home of Free Speech, Historical Oratory & Open Discourse</p>
     </header>
 
-        <nav>
+    <nav>
         <a href="index.html">Home</a>
         <a href="free-speech-arenas.html">Free Speech Arenas</a>
         <a href="about.html">About Us</a>
@@ -146,35 +146,61 @@
                     <img src="images/ai-speech.jpg" alt="AI & Free Speech">
                 </div>
                 <div class="card-content">
-                    <h3>AI & The Future of Free Speech</h3>
+                    <h3>AI & Free Speech</h3>
                     <p>Explore how AI moderation, automated content filters, and generative language models are transforming open dialogue in our societies.</p>
-                    <a href="https://ai.hydeparkspeakers.com/" class="arena-btn">Enter Arena</a>
+                    <a href="https://ai.hydeparkspeakers.com/" class="arena-btn" data-topic="ai">Enter Arena</a>
                 </div>
             </article>
 
-            <!-- Card 2: Digital Censorship -->
+            <!-- Card 2: Career & Leadership -->
             <article class="arena-card">
                 <div class="card-img-wrapper">
-                    <span class="status-badge coming-soon">Coming Soon</span>
-                    <img src="images/digital-speech.jpg" alt="Digital Free Speech">
+                    <span class="status-badge">Live Now</span>
+                    <img src="images/career.jpg" alt="Career & Leadership">
                 </div>
                 <div class="card-content">
-                    <h3>From Soapboxes to Megabytes</h3>
-                    <p>Are large social networks private property or public utilities? Explore platform moderation, shadowbanning, and algorithmic censorship.</p>
-                    <a href="#" class="arena-btn disabled">Coming Soon</a>
+                    <h3>Career & Leadership</h3>
+                    <p>Discuss career path strategies, leadership development, remote working culture, and CV optimization in the modern era.</p>
+                    <a href="https://career.hydeparkspeakers.com/" class="arena-btn" data-topic="career">Enter Arena</a>
                 </div>
             </article>
 
-            <!-- Card 3: The Power of physical spaces -->
+            <!-- Card 3: Technology & Software -->
             <article class="arena-card">
                 <div class="card-img-wrapper">
-                    <span class="status-badge coming-soon">Coming Soon</span>
-                    <img src="images/soapbox.jpg" alt="Physical Soapbox">
+                    <span class="status-badge">Live Now</span>
+                    <img src="images/tech.jpg" alt="Technology & Software">
                 </div>
                 <div class="card-content">
-                    <h3>Physical vs. Digital Squares</h3>
-                    <p>How do physical platforms like the soapbox shape political movements compared to corporate-moderated social media channels?</p>
-                    <a href="#" class="arena-btn disabled">Coming Soon</a>
+                    <h3>Technology & Software</h3>
+                    <p>Voice your thoughts on open-source software, computing hardware trends, digital privacy rights, and corporate tech monopolies.</p>
+                    <a href="https://tech.hydeparkspeakers.com/" class="arena-btn" data-topic="tech">Enter Arena</a>
+                </div>
+            </article>
+
+            <!-- Card 4: Finance & Economy -->
+            <article class="arena-card">
+                <div class="card-img-wrapper">
+                    <span class="status-badge">Live Now</span>
+                    <img src="images/finance.jpg" alt="Finance & Economy">
+                </div>
+                <div class="card-content">
+                    <h3>Finance & Economy</h3>
+                    <p>Debate global inflation pressures, stock market investment strategies, cryptocurrency assets, and decentralization.</p>
+                    <a href="https://finance.hydeparkspeakers.com/" class="arena-btn" data-topic="finance">Enter Arena</a>
+                </div>
+            </article>
+
+            <!-- Card 5: Gaming & Culture -->
+            <article class="arena-card">
+                <div class="card-img-wrapper">
+                    <span class="status-badge">Live Now</span>
+                    <img src="images/gaming.jpg" alt="Gaming & Culture">
+                </div>
+                <div class="card-content">
+                    <h3>Gaming & Culture</h3>
+                    <p>Discuss the rise of the metaverse, virtual social environments, developer ethics, and free speech in private gaming platforms.</p>
+                    <a href="https://gaming.hydeparkspeakers.com/" class="arena-btn" data-topic="gaming">Enter Arena</a>
                 </div>
             </article>
         </div>
@@ -184,5 +210,18 @@
         <p>&copy; 2026 Hyde Park Speakers. All Rights Reserved.</p>
     </footer>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const hostname = window.location.hostname;
+            // Eğer yerel test ortamındaysak, linkleri lokal sunucuya göre uyarla
+            if (hostname === "127.0.0.1" || hostname === "localhost") {
+                const buttons = document.querySelectorAll(".arena-btn[data-topic]");
+                buttons.forEach(btn => {
+                    const topic = btn.getAttribute("data-topic");
+                    btn.href = `free-speech-template.html?topic=${topic}`;
+                });
+            }
+        });
+    </script>
 </body>
 </html>

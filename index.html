@@ -43,7 +43,7 @@
     <div class="container">
         <div class="main-content">
             <div style="text-align: center; margin: 25px 0;">
-    <a href="ai-debate-template.html" style="background: #e74c3c; color: white; padding: 12px 25px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3); display: inline-block;">
+    <a id="liveArenaBtn" href="https://ai.hydeparkspeakers.com/" style="background: #e74c3c; color: white; padding: 12px 25px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3); display: inline-block;">
         📢 Live Free Speech Arena: AI & Free Speech (Join Now)
     </a>
     <div style="margin-top: 15px;">
@@ -51,6 +51,13 @@
     </div>
 </div>
             <!-- Makale Listesi Gelecek -->
+            <!-- Makale 6 (YENİ) -->
+            <div class="post-preview">
+                <span class="date">July 25, 2026</span>
+                <h2><a href="decentralized-public-square.html">The Decentralized Public Square: Can Web3 Restore Free Speech?</a></h2>
+                <img src="images/decentralized-square.jpg" alt="Decentralized Digital Public Square" style="width: 100%; max-height: 250px; object-fit: cover; border-radius: 6px; margin: 10px 0;">
+                <p>An intellectual analysis of how decentralized technologies, blockchain, and Web3 networks could redefine online expression and bypass corporate content moderation gatekeepers...</p>
+            </div>
             <div class="post-preview">
                 <span class="date">July 16, 2026</span>
                 <h2><a href="history-of-speakers-corner.html">The History of Speakers' Corner: From Tyburn Gallows to Free Speech</a></h2>
@@ -97,5 +104,16 @@
         <p>&copy; 2026 Hyde Park Speakers. All Rights Reserved.</p>
     </footer>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const hostname = window.location.hostname;
+            if (hostname === "127.0.0.1" || hostname === "localhost") {
+                const liveBtn = document.getElementById("liveArenaBtn");
+                if (liveBtn) {
+                    liveBtn.href = "free-speech-template.html?topic=ai";
+                }
+            }
+        });
+    </script>
 </body>
 </html>

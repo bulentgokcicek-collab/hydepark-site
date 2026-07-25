@@ -120,10 +120,12 @@
     <div class="debate-container">
         <!-- SOL TARAF: MAKALE -->
         <section class="article-side">
-            <span class="date">July 17, 2026</span>
-            <h1>AI and the Automated Frontier of Free Speech</h1>
-            <img src="images/ai-speech.jpg" alt="AI Free Speech" style="width: 100%; border-radius: 6px; margin: 15px 0;">
-            <p>As artificial intelligence systems begin to moderate, generate, and restrict human language on a global scale, the fundamental nature of free speech is changing.</p>
+            <span class="date" id="articleDate">July 25, 2026</span>
+            <h1 id="articleTitle">AI and the Automated Frontier of Free Speech</h1>
+            <img id="articleImage" src="images/ai-speech.jpg" alt="Free Speech Arena" style="width: 100%; border-radius: 6px; margin: 15px 0;">
+            <div id="articleBody">
+                <p>As artificial intelligence systems begin to moderate, generate, and restrict human language on a global scale, the fundamental nature of free speech is changing.</p>
+            </div>
         </section>
 
         <!-- SAĞ TARAF: SOHBET AKIŞI -->
@@ -165,7 +167,30 @@
         <p>&copy; 2026 Hyde Park Speakers. All Rights Reserved.</p>
     </footer>
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
+    // 1. URL veya Subdomain'e göre konuyu (topic) belirliyoruz
+    function getCurrentTopic() {
+        const hostname = window.location.hostname;
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // Eğer yerel sunucudaysak (127.0.0.1 veya localhost) URL'den ?topic=... parametresini kontrol et
+        if (hostname === "127.0.0.1" || hostname === "localhost") {
+            return urlParams.get("topic") || "ai";
+        }
+        
+        // Değilse, subdomain'i konumuz olarak belirle (Örn: career.hydeparkspeakers.com -> career)
+        const parts = hostname.split(".");
+        if (parts.length > 2) {
+            const sub = parts[0].toLowerCase();
+            return sub;
+        }
+        
+        return "ai";
+    }
+
+    const currentTopic = getCurrentTopic();
+    const apiEndpoint = "/api";
+
+    document.addEventListener("DOMContentLoaded", async () => {
         // 1. Kayıtlı kullanıcı adını kontrol et ve sabitle
         const savedUsername = localStorage.getItem("hydepark_username");
         if (savedUsername) {
@@ -176,13 +201,29 @@
             usernameInput.style.cursor = "not-allowed";
         }
         
-        // 2. Yorumları getir
+        // 2. topics.json'dan konuya ait verileri çekip sayfayı dinamik güncelle
+        try {
+            const response = await fetch("/topics.json");
+            const topics = await response.json();
+            const topicData = topics[currentTopic] || topics["ai"];
+
+            if (topicData) {
+                document.title = topicData.title;
+                document.getElementById("articleDate").innerText = topicData.date;
+                document.getElementById("articleTitle").innerText = topicData.articleTitle;
+                document.getElementById("articleImage").src = topicData.articleImage;
+                document.getElementById("articleImage").alt = topicData.articleTitle;
+                document.getElementById("articleBody").innerHTML = topicData.articleContent;
+            }
+        } catch (err) {
+            console.error("Topics data load failed:", err);
+        }
+
+        // 3. Yorumları getir
         fetchComments();
     });
 
     document.getElementById("sortOptions").addEventListener("change", fetchComments);
-
-    const apiEndpoint = "/api";
 
     // 1. YORUMLARI GETİR VE BALONCUKLARA PUANLAMA EKLE
     async function fetchComments() {
@@ -190,7 +231,7 @@
         const historyDiv = document.getElementById("chatHistory");
         
         try {
-            const response = await fetch(`${apiEndpoint}?topic=ai&sort=${sortBy}`);
+            const response = await fetch(`${apiEndpoint}?topic=${currentTopic}&sort=${sortBy}`);
             const comments = await response.json();
             
             historyDiv.innerHTML = "";
@@ -278,7 +319,7 @@
             const response = await fetch(apiEndpoint, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ username, comment, topic: "ai" })
+                body: JSON.stringify({ username, comment, topic: currentTopic })
             });
 
             const result = await response.json();

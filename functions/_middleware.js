@@ -1,11 +1,19 @@
 export async function onRequest(context) {
   const url = new URL(context.request.url);
+  const hostname = url.hostname;
 
-  // Eğer istek "ai.hydeparkspeakers.com" alan adına geldiyse
-  if (url.hostname === "ai.hydeparkspeakers.com") {
-    // Sadece kök dizin (/) doğrudan çağrıldığında AI tartışma sayfasını sunuyoruz
-    if (url.pathname === "/") {
-      url.pathname = "/ai-debate-template.html";
+  // İzin verilen alt alan adları (subdomain'ler) listesi
+  const allowedSubdomains = ["ai", "career", "tech", "finance", "gaming"];
+
+  // Alt alan adını yakalıyoruz (Örn: career.hydeparkspeakers.com -> career)
+  const parts = hostname.split(".");
+  const subdomain = parts[0];
+
+  // Eğer istek izin verilen alt alan adlarından birine geldiyse
+  if (parts.length > 2 && allowedSubdomains.includes(subdomain)) {
+    // Sadece kök dizin (/) veya /index.html doğrudan çağrıldığında dinamik şablon sayfamızı sunuyoruz
+    if (url.pathname === "/" || url.pathname === "/index.html") {
+      url.pathname = "/free-speech-template.html";
       return context.env.ASSETS.fetch(url);
     }
     

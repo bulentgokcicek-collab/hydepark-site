@@ -49,14 +49,6 @@ export async function onRequest(context) {
         return new Response(JSON.stringify({ error: "Missing fields" }), { headers, status: 400 });
       }
 
-      // 🛡️ AKILLI FİLTRE: Yayın politikasını korumak için temel zararlı kelime kontrolü
-      const toxicWords = ["slur", "hate", "küfür1", "küfür2", "hakaret1", "spam"]; // Filtrelenecek kelimeler
-      const isToxic = toxicWords.some(word => comment.toLowerCase().includes(word));
-
-      if (isToxic) {
-        return new Response(JSON.stringify({ error: "Your comment contains words that violate our free speech guidelines." }), { headers, status: 422 });
-      }
-
       // D1 SQL veri tabanına topic alanı ile birlikte yaz
       await env.DB.prepare("INSERT INTO comments (username, comment, stars, topic) VALUES (?, ?, 3, ?)")
         .bind(username, comment, finalTopic).run();
