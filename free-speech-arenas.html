@@ -210,18 +210,5 @@
         <p>&copy; 2026 Hyde Park Speakers. All Rights Reserved.</p>
     </footer>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const hostname = window.location.hostname;
-            // Eğer yerel test ortamındaysak, linkleri lokal sunucuya göre uyarla
-            if (hostname === "127.0.0.1" || hostname === "localhost") {
-                const buttons = document.querySelectorAll(".arena-btn[data-topic]");
-                buttons.forEach(btn => {
-                    const topic = btn.getAttribute("data-topic");
-                    btn.href = `free-speech-template.html?topic=${topic}`;
-                });
-            }
-        });
-    </script>
 </body>
 </html>
