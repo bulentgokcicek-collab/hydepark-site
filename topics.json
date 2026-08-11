@@ -42,21 +42,25 @@
   "place-them-all": {
     "type": "game",
     "title": "Place Them All",
-    "gameUrl": "games/place-them-all/index.html"
+    "gameUrl": "games/place-them-all/index.html",
+    "gameDescription": "<p><strong>Place Them All</strong> is a strategic block puzzle game where placement, spatial reasoning, and foresight are key to achieving high scores. The game is designed to challenge players by presenting randomized block configurations that must be fitted onto an 8x8 grid. Clearing full lines horizontally or vertically removes the blocks, keeping the board open and generating points. As the board fills up, planning ahead becomes critical, making every decision impactful.</p><p>Beyond the engaging puzzle mechanics, this arena serves as a space to discuss the nature of spatial design, logic, and how structural boundaries influence our focus and productivity. Share your high scores, compare strategies for block placement, and discuss how games like this help sharpen cognitive agility in the digital age.</p>"
   },
   "just-swipe-away": {
     "type": "game",
     "title": "Just Swipe Away",
-    "gameUrl": "games/just-swipe-away/index.html"
+    "gameUrl": "games/just-swipe-away/index.html",
+    "gameDescription": "<p><strong>Just Swipe Away</strong> is an action-packed sliding block arcade game that tests your reflexes and tactical decision-making under increasing speed. In this game, players swipe blocks horizontally to complete horizontal lines. Completed lines are removed from the board, allowing blocks above to fall down. The game demands rapid cognitive processing as new rows are pushed up from the bottom, forcing you to think fast before the board overflows.</p><p>As you play, join the conversation in the chat arena to discuss reaction times, game engine physics, and the cultural evolution of arcade mechanics in mobile development. Connect with other swipers, discuss line-clearing combos, and share tips on managing the board when the speed hits its peak.</p>"
   },
   "search-your-memory": {
     "type": "game",
     "title": "Search Your Memory",
-    "gameUrl": "games/search-your-memory/index.html"
+    "gameUrl": "games/search-your-memory/index.html",
+    "gameDescription": "<p><strong>Search Your Memory</strong> is a classic card matching board game created to train and improve cognitive recall, focus, and visual memory. Players flip pairs of cards to find matching symbols across a grid, aiming to clear the entire board in as few moves as possible. With clean graphics and multiple themes, it offers an elegant, distraction-free environment for cognitive stimulation.</p><p>Use the accompanying live chat panel to share your personal best scores, discuss cognitive training methodologies, and debate the effectiveness of memory games in preventing age-related memory decline. It is the perfect place to combine mental exercise with engaging intellectual conversations.</p>"
   },
   "lingo-match": {
     "type": "game",
     "title": "Lingo Match",
-    "gameUrl": "games/lingo-match/index.html"
+    "gameUrl": "games/lingo-match/index.html",
+    "gameDescription": "<p><strong>Lingo Match</strong> is an educational vocabulary and word-matching game that challenges players to match letters, identify language connections, and expand their vocabulary. The game is designed to stimulate the language centers of the brain, making it an engaging tool for vocabulary building, language learning, and verbal fluency.</p><p>In the debate arena on the right, you can discuss language sovereignty, the impact of global digital networks on local dialects, and the role of automated language tools in shaping how we communicate. Exchange language learning resources, discuss word origins, and chat with other linguistics enthusiasts.</p>"
   }
 }
