@@ -4,7 +4,7 @@ export async function onRequest(context) {
 
   // İzin verilen alt alan adları (subdomain'ler) listesi
   const allowedSubdomains = [
-    "ai", "career", "tech", "finance", "gaming",
+    "ai", "career", "tech", "finance", "gaming", "crypto",
     "place-them-all", "just-swipe-away", "search-your-memory", "lingo-match"
   ];
 

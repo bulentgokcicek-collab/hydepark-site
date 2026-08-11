@@ -62,5 +62,13 @@
     "title": "Lingo Match",
     "gameUrl": "games/lingo-match/index.html",
     "gameDescription": "<p><strong>Lingo Match</strong> is an educational vocabulary and word-matching game that challenges players to match letters, identify language connections, and expand their vocabulary. The game is designed to stimulate the language centers of the brain, making it an engaging tool for vocabulary building, language learning, and verbal fluency.</p><p>In the debate arena on the right, you can discuss language sovereignty, the impact of global digital networks on local dialects, and the role of automated language tools in shaping how we communicate. Exchange language learning resources, discuss word origins, and chat with other linguistics enthusiasts.</p>"
+  },
+  "crypto": {
+    "title": "Cryptocurrency & Web3 Arena",
+    "subtitle": "Debate cryptocurrency assets, decentralization, blockchain economics, and financial sovereignty.",
+    "articleTitle": "Cryptographic Sovereignty: The Rise of Decentralized Capital",
+    "articleImage": "images/crypto.jpg",
+    "date": "August 11, 2026",
+    "articleContent": "<p>The global financial architecture is undergoing a quiet revolution led by cryptographic protocols and decentralized ledgers. Since the inception of Bitcoin in 2009, the concept of money has evolved from a state-controlled monopoly to a decentralized utility.</p><p>Proponents argue that cryptocurrencies provide financial sovereignty, allowing individuals to store and transfer wealth without relying on central bank intermediaries. However, critics point out the high volatility, environmental impact of mining, and lack of consumer protections.</p><p>Is cryptocurrency the future of sovereign money, or is it a speculative bubble? Debate the economics of Web3, digital assets, and the decentralization of global capital.</p>"
   }
 }
