@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyFlower Software | Mobile Games & Interactive Apps</title>
+    <meta name="description" content="Discover premium mobile games by SkyFlower Software, including Place Them All, Just Swipe Away, Search Your Memory, and Lingo Match.">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #333; background: #f9f9f9; }
+        header { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: #fff; padding: 60px 20px; text-align: center; }
+        header h1 { margin: 0; font-size: 2.8rem; letter-spacing: 1px; }
+        header p { margin: 15px 0 0 0; color: #e0e6ed; font-size: 1.2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+        
+        nav { background: #2c3e50; text-align: center; padding: 12px 10px; display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 15px; }
+        nav a { color: #fff; text-decoration: none; font-weight: bold; white-space: nowrap; }
+        nav a:hover { color: #1abc9c; }
+        
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        
+        .intro-text { text-align: center; margin-bottom: 50px; }
+        .intro-text h2 { color: #2c3e50; font-size: 2.2rem; margin-bottom: 15px; }
+        .intro-text p { color: #7f8c8d; font-size: 1.15rem; max-width: 800px; margin: 0 auto; line-height: 1.8; }
+        
+        /* Grid Layout */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        /* Premium Card Design */
+        .game-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #eef2f5;
+        }
+        .game-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+        
+        .card-img-wrapper {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+            background: #f0f2f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .game-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .game-card:hover img {
+            transform: scale(1.06);
+        }
+        
+        .game-icon-overlay {
+            position: absolute;
+            bottom: -25px;
+            left: 20px;
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+            background: #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 2px solid #fff;
+        }
+        .game-icon-overlay img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .card-content {
+            padding: 40px 24px 24px 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .game-title {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        .game-desc {
+            color: #5c6a79;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            flex: 1;
+        }
+        .btn-primary {
+            background: #1e3c72;
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background: #2a5298;
+        }
+        .btn-secondary {
+            background: #eaeef2;
+            color: #4a5568;
+        }
+        .btn-secondary:hover {
+            background: #cbd5e0;
+        }
+        
+        .play-store-badge {
+            height: 38px;
+            margin-top: 10px;
+            align-self: center;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+        .play-store-badge:hover {
+            opacity: 1;
+        }
+
+        .studio-info {
+            background: #fff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-top: 50px;
+            text-align: center;
+            border: 1px solid #eef2f5;
+        }
+        .studio-info h3 {
+            color: #2c3e50;
+            margin-top: 0;
+            font-size: 1.6rem;
+        }
+        .studio-info p {
+            color: #7f8c8d;
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 15px auto;
+        }
+        .contact-btn {
+            display: inline-block;
+            background: #1abc9c;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.2s;
+            margin-top: 10px;
+        }
+        .contact-btn:hover {
+            background: #16a085;
+        }
+        
+        footer { text-align: center; padding: 25px; background: #1a252f; color: #fff; margin-top: 60px; font-size: 0.95rem; }
+        footer a { color: #aec6cf; text-decoration: none; }
+        footer a:hover { color: #fff; text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>SkyFlower Software</h1>
+        <p>Premium mobile games and interactive digital experiences crafted with passion and logic.</p>
+    </header>
+
+        <nav>
+        <a href="index.html">Home</a>
+        <a href="free-speech-arenas.html">Free Speech Arenas</a>
+        <a href="free-games.html">Free Games</a>
+        <a href="skyflower.html">SkyFlower Games</a>
+        <a href="about.html">About Us</a>
+        <a href="privacy.html">Privacy Policy</a>
+    </nav>
+
+    <div class="container">
+        <div class="intro-text">
+            <h2>Our Development Studio</h2>
+            <p>
+                At SkyFlower Software, we believe in creating high-quality, lightweight, and engaging mobile applications. 
+                Our portfolio features intuitive puzzle games, memory training cards, and educational language matchups. 
+                We design games that are easy to pick up, satisfy the mind, and are completely free to enjoy.
+            </p>
+        </div>
+
+        <div class="game-grid">
+            <!-- Place Them All -->
+            <div class="game-card">
+                <div class="card-img-wrapper">
+                    <img src="images/gaming.jpg" alt="Place Them All Banner">
+                    <div class="game-icon-overlay">
+                        <img src="games/place-them-all/favicon.png" alt="Place Them All Icon" onerror="this.src='images/gaming.jpg'">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="game-title">Place Them All</h3>
+                    <p class="game-desc">A premium block puzzle game with clean neon visuals. Drag shapes onto the 8x8 grid, clear rows and columns, and rack up combos in a soothing logical gameplay loop.</p>
+                    <div class="btn-group">
+                        <a href="free-games.html" class="btn btn-primary">Play on Web</a>
+                        <a href="#" class="btn btn-secondary">Google Play</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Just Swipe Away -->
+            <div class="game-card">
+                <div class="card-img-wrapper">
+                    <img src="images/gaming.jpg" alt="Just Swipe Away Banner">
+                    <div class="game-icon-overlay">
+                        <img src="games/just-swipe-away/favicon.png" alt="Just Swipe Away Icon" onerror="this.src='images/gaming.jpg'">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="game-title">Just Swipe Away</h3>
+                    <p class="game-desc">A fast-paced block-sliding arcade game. Swipe blocks horizontally to fill empty gaps, clear rows, and prevent the rising blocks from reaching the top of the grid.</p>
+                    <div class="btn-group">
+                        <a href="free-games.html" class="btn btn-primary">Play on Web</a>
+                        <a href="#" class="btn btn-secondary">Google Play</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search Your Memory -->
+            <div class="game-card">
+                <div class="card-img-wrapper">
+                    <img src="images/career.jpg" alt="Search Your Memory Banner">
+                    <div class="game-icon-overlay">
+                        <img src="games/search-your-memory/favicon.png" alt="Search Your Memory Icon" onerror="this.src='images/career.jpg'">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="game-title">Search Your Memory</h3>
+                    <p class="game-desc">Keep your brain sharp with this clean memory card match game. Match pairs of illustrations across multiple difficulty levels before the timer runs out.</p>
+                    <div class="btn-group">
+                        <a href="free-games.html" class="btn btn-primary">Play on Web</a>
+                        <a href="#" class="btn btn-secondary">Google Play</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lingo Match -->
+            <div class="game-card">
+                <div class="card-img-wrapper">
+                    <img src="images/tech.jpg" alt="Lingo Match Banner">
+                    <div class="game-icon-overlay">
+                        <img src="games/lingo-match/favicon.png" alt="Lingo Match Icon" onerror="this.src='images/tech.jpg'">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="game-title">Lingo Match</h3>
+                    <p class="game-desc">Dil öğrenmek hiç bu kadar eğlenceli olmamıştı! Card matching logic combined with language learning. Pair foreign vocabulary words with their meanings to level up.</p>
+                    <div class="btn-group">
+                        <a href="free-games.html" class="btn btn-primary">Play on Web</a>
+                        <a href="#" class="btn btn-secondary">Google Play</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="studio-info">
+            <h3>Support & Inquiries</h3>
+            <p>
+                Have a question about our games, feedback, or need help? 
+                Feel free to reach out to our support team at any time.
+            </p>
+            <a href="mailto:speakershydepark@gmail.com" class="contact-btn">Email Support</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 SkyFlower Software. All Rights Reserved. | <a href="privacy.html">Privacy Policy</a> | Linked with <a href="index.html">Hyde Park Speakers</a></p>
+    </footer>
+
+</body>
+</html>
